@@ -1,9 +1,7 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-import { gql } from '@apollo/client';
-
-export const onCreateTodo = gql`
+export const onCreateTodo = /* GraphQL */ `
   subscription OnCreateTodo {
     onCreateTodo {
       id
@@ -14,7 +12,7 @@ export const onCreateTodo = gql`
     }
   }
 `;
-export const onUpdateTodo = gql`
+export const onUpdateTodo = /* GraphQL */ `
   subscription OnUpdateTodo {
     onUpdateTodo {
       id
@@ -25,7 +23,7 @@ export const onUpdateTodo = gql`
     }
   }
 `;
-export const onDeleteTodo = gql`
+export const onDeleteTodo = /* GraphQL */ `
   subscription OnDeleteTodo {
     onDeleteTodo {
       id

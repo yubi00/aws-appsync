@@ -1,17 +1,17 @@
-import { useMutation } from '@apollo/client';
+import { useMutation, gql } from '@apollo/client';
 import React, { useState } from 'react';
 import { createTodo } from '../graphql/mutations';
 import { listTodos } from '../graphql/queries';
 
 const InputForm = () => {
   const [values, setValues] = useState({ name: '', description: '' });
-  const [CreateTodo, { loading, error }] = useMutation(createTodo, {
+  const [CreateTodo, { loading, error }] = useMutation(gql(createTodo), {
     update: (cache, { data: { createTodo } }) => {
-      const existingTodos = cache.readQuery({ query: listTodos });
+      const existingTodos = cache.readQuery({ query: gql(listTodos) });
 
       if (existingTodos) {
         cache.writeQuery({
-          query: listTodos,
+          query: gql(listTodos),
           data: {
             listTodos: {
               ...existingTodos.listTodos,

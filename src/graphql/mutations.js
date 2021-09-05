@@ -1,9 +1,7 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-import { gql } from '@apollo/client';
-
-export const createTodo = gql`
+export const createTodo = /* GraphQL */ `
   mutation CreateTodo(
     $input: CreateTodoInput!
     $condition: ModelTodoConditionInput
@@ -17,7 +15,7 @@ export const createTodo = gql`
     }
   }
 `;
-export const updateTodo = gql`
+export const updateTodo = /* GraphQL */ `
   mutation UpdateTodo(
     $input: UpdateTodoInput!
     $condition: ModelTodoConditionInput
@@ -31,7 +29,7 @@ export const updateTodo = gql`
     }
   }
 `;
-export const deleteTodo = gql`
+export const deleteTodo = /* GraphQL */ `
   mutation DeleteTodo(
     $input: DeleteTodoInput!
     $condition: ModelTodoConditionInput
