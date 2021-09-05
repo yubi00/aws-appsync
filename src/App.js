@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useQuery } from '@apollo/client';
 import './App.css';
+import { listTodos } from './graphql/queries';
+import Todos from './components/Todos';
+import InputForm from './components/InputForm';
 
 function App() {
+  const { data, loading, error } = useQuery(listTodos);
+
+  if (loading) return <p style={{ textAlign: 'center ' }}>Loading...</p>;
+  if (error) return <p style={{ textAlign: 'center ' }}>Error...</p>;
+
+  const sortedTodos = [...data?.listTodos?.items].sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Todo Apo</h1>
+      <InputForm />
+      <Todos todos={sortedTodos} />
     </div>
   );
 }
