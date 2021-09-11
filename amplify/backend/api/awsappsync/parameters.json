@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "awsappsync",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authawsappsyncd0ba64fa",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

@@ -1,25 +1,50 @@
-import { useQuery, gql } from '@apollo/client';
+import React, { useState, useEffect } from 'react';
+import {
+  AmplifyAuthenticator,
+  AmplifySignOut,
+  AmplifySignUp,
+} from '@aws-amplify/ui-react';
+import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import './App.css';
-import { listTodos } from './graphql/queries';
 import Todos from './components/Todos';
 import InputForm from './components/InputForm';
 
 function App() {
-  const { data, loading, error } = useQuery(gql(listTodos));
+  const [authState, setAuthState] = useState();
+  const [user, setUser] = useState();
 
-  if (loading) return <p style={{ textAlign: 'center ' }}>Loading...</p>;
-  if (error) return <p style={{ textAlign: 'center ' }}>{error.message}</p>;
+  const onAuthStateChange = () => {
+    onAuthUIStateChange((nextAuthState, authData) => {
+      setAuthState(nextAuthState);
+      setUser(authData);
+    });
+  };
 
-  const sortedTodos = [...data?.listTodos?.items].sort(
-    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-  );
+  useEffect(() => {
+    onAuthStateChange();
+  }, []);
+
+  if (authState === AuthState.SignedIn && user)
+    return (
+      <div className="App">
+        <AmplifySignOut />
+        <div>Hello, {user.username}</div>
+        <InputForm />
+        <Todos />
+      </div>
+    );
 
   return (
-    <div className="App">
-      <h1>Todo Apo</h1>
-      <InputForm />
-      <Todos todos={sortedTodos} />
-    </div>
+    <AmplifyAuthenticator>
+      <AmplifySignUp
+        slot="sign-up"
+        formFields={[
+          { type: 'username' },
+          { type: 'password' },
+          { type: 'email' },
+        ]}
+      />
+    </AmplifyAuthenticator>
   );
 }
 

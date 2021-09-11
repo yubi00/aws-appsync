@@ -10,6 +10,12 @@
       "StackName": "amplify-awsappsync-dev-180115",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:688813079787:stack/amplify-awsappsync-dev-180115/74c07df0-0e1f-11ec-9708-02c79acdfef8",
       "AmplifyAppId": "dpeax00lqw4m5"
+    },
+    "categories": {
+      "auth": {
+        "awsappsync899c8d8e": {},
+        "awsappsyncd0ba64fa": {}
+      }
     }
   }
 }

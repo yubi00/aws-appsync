@@ -3,3 +3,9 @@ type Todo @model {
   name: String!
   description: String
 }
+
+type User @model {
+  id: ID!
+  username: String!
+  email: String!
+}
