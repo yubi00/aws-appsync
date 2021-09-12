@@ -1,7 +1,7 @@
 type Todo @model {
   id: ID!
   name: String!
-  description: String
+  description: String!
 }
 
 type User @model {

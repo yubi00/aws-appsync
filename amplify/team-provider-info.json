@@ -15,6 +15,12 @@
       "auth": {
         "awsappsync899c8d8e": {},
         "awsappsyncd0ba64fa": {}
+      },
+      "function": {
+        "usrsPreSignup": {
+          "deploymentBucketName": "amplify-awsappsync-dev-180115-deployment",
+          "s3Key": "amplify-builds/usrsPreSignup-63653151566b4b2f4430-build.zip"
+        }
       }
     }
   }
