@@ -1,11 +1,20 @@
+# Many-to-Many relationship between User and Todo
 type Todo @model {
   id: ID!
   name: String!
   description: String!
+  users: [UserTodos] @connection(name: "TodoUsers")
 }
 
 type User @model {
   id: ID!
   username: String!
   email: String!
+  todos: [UserTodos] @connection(name: "UserTodos")
+}
+
+type UserTodos @model(queries: null) {
+  id: ID!
+  user: User @connection(name: "UserTodos")
+  todo: Todo @connection(name: "TodoUsers")
 }

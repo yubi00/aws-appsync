@@ -20,6 +20,10 @@
         "usrsPreSignup": {
           "deploymentBucketName": "amplify-awsappsync-dev-180115-deployment",
           "s3Key": "amplify-builds/usrsPreSignup-63653151566b4b2f4430-build.zip"
+        },
+        "addUserPostConfirm": {
+          "deploymentBucketName": "amplify-awsappsync-dev-180115-deployment",
+          "s3Key": "amplify-builds/addUserPostConfirm-4b455a6a765845783551-build.zip"
         }
       }
     }

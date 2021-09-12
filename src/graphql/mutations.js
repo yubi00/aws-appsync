@@ -10,6 +10,9 @@ export const createTodo = /* GraphQL */ `
       id
       name
       description
+      users {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -24,6 +27,9 @@ export const updateTodo = /* GraphQL */ `
       id
       name
       description
+      users {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -38,6 +44,9 @@ export const deleteTodo = /* GraphQL */ `
       id
       name
       description
+      users {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -52,6 +61,9 @@ export const createUser = /* GraphQL */ `
       id
       username
       email
+      todos {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -66,6 +78,9 @@ export const updateUser = /* GraphQL */ `
       id
       username
       email
+      todos {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -80,6 +95,87 @@ export const deleteUser = /* GraphQL */ `
       id
       username
       email
+      todos {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createUserTodos = /* GraphQL */ `
+  mutation CreateUserTodos(
+    $input: CreateUserTodosInput!
+    $condition: ModelUserTodosConditionInput
+  ) {
+    createUserTodos(input: $input, condition: $condition) {
+      id
+      user {
+        id
+        username
+        email
+        createdAt
+        updatedAt
+      }
+      todo {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateUserTodos = /* GraphQL */ `
+  mutation UpdateUserTodos(
+    $input: UpdateUserTodosInput!
+    $condition: ModelUserTodosConditionInput
+  ) {
+    updateUserTodos(input: $input, condition: $condition) {
+      id
+      user {
+        id
+        username
+        email
+        createdAt
+        updatedAt
+      }
+      todo {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteUserTodos = /* GraphQL */ `
+  mutation DeleteUserTodos(
+    $input: DeleteUserTodosInput!
+    $condition: ModelUserTodosConditionInput
+  ) {
+    deleteUserTodos(input: $input, condition: $condition) {
+      id
+      user {
+        id
+        username
+        email
+        createdAt
+        updatedAt
+      }
+      todo {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }

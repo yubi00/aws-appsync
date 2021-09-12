@@ -7,6 +7,9 @@ export const getTodo = /* GraphQL */ `
       id
       name
       description
+      users {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -36,6 +39,9 @@ export const getUser = /* GraphQL */ `
       id
       username
       email
+      todos {
+        nextToken
+      }
       createdAt
       updatedAt
     }

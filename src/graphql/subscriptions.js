@@ -7,6 +7,9 @@ export const onCreateTodo = /* GraphQL */ `
       id
       name
       description
+      users {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -18,6 +21,9 @@ export const onUpdateTodo = /* GraphQL */ `
       id
       name
       description
+      users {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -29,6 +35,9 @@ export const onDeleteTodo = /* GraphQL */ `
       id
       name
       description
+      users {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -40,6 +49,9 @@ export const onCreateUser = /* GraphQL */ `
       id
       username
       email
+      todos {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -51,6 +63,9 @@ export const onUpdateUser = /* GraphQL */ `
       id
       username
       email
+      todos {
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -62,6 +77,78 @@ export const onDeleteUser = /* GraphQL */ `
       id
       username
       email
+      todos {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateUserTodos = /* GraphQL */ `
+  subscription OnCreateUserTodos {
+    onCreateUserTodos {
+      id
+      user {
+        id
+        username
+        email
+        createdAt
+        updatedAt
+      }
+      todo {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateUserTodos = /* GraphQL */ `
+  subscription OnUpdateUserTodos {
+    onUpdateUserTodos {
+      id
+      user {
+        id
+        username
+        email
+        createdAt
+        updatedAt
+      }
+      todo {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteUserTodos = /* GraphQL */ `
+  subscription OnDeleteUserTodos {
+    onDeleteUserTodos {
+      id
+      user {
+        id
+        username
+        email
+        createdAt
+        updatedAt
+      }
+      todo {
+        id
+        name
+        description
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
