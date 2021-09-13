@@ -24,6 +24,10 @@
         "addUserPostConfirm": {
           "deploymentBucketName": "amplify-awsappsync-dev-180115-deployment",
           "s3Key": "amplify-builds/addUserPostConfirm-4b455a6a765845783551-build.zip"
+        },
+        "customResolverDS": {
+          "deploymentBucketName": "amplify-awsappsync-dev-180115-deployment",
+          "s3Key": "amplify-builds/customResolverDS-4e4a35612b316f6d4d44-build.zip"
         }
       }
     }
