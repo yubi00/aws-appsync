@@ -1,4 +1,5 @@
 const aws = require('aws-sdk');
+const { randomUUID } = require('crypto');
 const db = new aws.DynamoDB.DocumentClient();
 
 exports.handler = async (event, context) => {
@@ -6,10 +7,10 @@ exports.handler = async (event, context) => {
 
   const date = new Date();
   const { userTodosTodoId } = event.arguments.input;
-  const id = event.identity.claims.sub;
+  const id = randomUUID();
   const username = event.identity.claims['cognito:username'];
 
-  if (id) {
+  if (event.identity.claims.sub) {
     const params = {
       TableName: process.env.USERTABLE,
       FilterExpression: 'username = :_username',

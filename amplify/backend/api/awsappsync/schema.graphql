@@ -18,3 +18,13 @@ type UserTodos @model(queries: null) {
   user: User @connection(name: "UserTodos")
   todo: Todo @connection(name: "TodoUsers")
 }
+
+input CreateUserTodosInput {
+  id: ID
+  userTodosUserId: ID
+  userTodosTodoId: ID
+}
+
+type Query {
+  echo(msg: String): String
+}
