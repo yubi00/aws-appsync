@@ -6,7 +6,10 @@ type Todo @model {
   users: [UserTodos] @connection(name: "TodoUsers")
 }
 
-type User @model {
+type User
+  @model(
+    mutations: { create: null, update: "updateUser", delete: "deleteUser" }
+  ) {
   id: ID!
   username: String!
   email: String!
@@ -17,4 +20,14 @@ type UserTodos @model(queries: null) {
   id: ID!
   user: User @connection(name: "UserTodos")
   todo: Todo @connection(name: "TodoUsers")
+}
+
+input CreateUserInput {
+  id: ID
+  username: String!
+  email: String!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User
 }

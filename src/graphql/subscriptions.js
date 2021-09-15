@@ -43,20 +43,6 @@ export const onDeleteTodo = /* GraphQL */ `
     }
   }
 `;
-export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser {
-    onCreateUser {
-      id
-      username
-      email
-      todos {
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser {
     onUpdateUser {

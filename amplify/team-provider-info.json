@@ -32,6 +32,10 @@
         "echofunction": {
           "deploymentBucketName": "amplify-awsappsync-dev-180115-deployment",
           "s3Key": "amplify-builds/echofunction-323938484e436c716f6e-build.zip"
+        },
+        "sampleFunction": {
+          "deploymentBucketName": "amplify-awsappsync-dev-180115-deployment",
+          "s3Key": "amplify-builds/sampleFunction-74424a35477a4751524f-build.zip"
         }
       }
     }
