@@ -36,8 +36,42 @@ exports.handler = async (event, context) => {
         .promise();
 
       console.log('success query');
-      return {
+      const resolvedFields = {
         id,
+        createdAt: date.toISOString(),
+        updatedAt: date.toISOString(),
+      };
+      let todoFields = {};
+      let userFields = {};
+
+      //check is user is present in the nested fields ( selectionsetlist )
+      if (event.selectionSetList.find((listItem) => listItem === 'user')) {
+        userFields = {
+          ...user.Items[0],
+        };
+      }
+
+      //check is todo is present in the nested fields ( selectionsetlist )
+
+      if (event.selectionSetList.find((listItem) => listItem === 'todo')) {
+        const todo = await await db
+          .get({
+            Key: {
+              id: userTodosTodoId,
+            },
+            TableName: process.env.TODO_TABLE,
+          })
+          .promise();
+
+        todoFields = {
+          ...todo.Item,
+        };
+      }
+
+      return {
+        ...resolvedFields,
+        user: { ...userFields },
+        todo: { ...todoFields },
       };
     } catch (error) {
       console.log('Error: ', error);

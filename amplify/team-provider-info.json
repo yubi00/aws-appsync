@@ -27,7 +27,7 @@
         },
         "customResolverDS": {
           "deploymentBucketName": "amplify-awsappsync-dev-180115-deployment",
-          "s3Key": "amplify-builds/customResolverDS-537037775a676b52554e-build.zip"
+          "s3Key": "amplify-builds/customResolverDS-38784d433270426c6244-build.zip"
         },
         "echofunction": {
           "deploymentBucketName": "amplify-awsappsync-dev-180115-deployment",
